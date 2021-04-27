@@ -1,6 +1,6 @@
 # Less
 less (previously c--)
 
-# Installation
+## Installation
   sudo sh install.sh</br>
   that's it
