@@ -1,0 +1,20 @@
+
+# simple commands example
+# note: you have to name the dict 'commands'
+
+commands = {
+    'foo': "int i; for(i=0; i<$0; i++){putchar('f');putchar('o');putchar('o');}",
+        # $0 will be replaced with the first argument passed to foo
+        # this thig is nice, but it implies you can't use $ symbol
+        # well only capitalist pigs uses that symbol so no problem :P
+
+}
+
+
+# example:
+
+# line:
+# foo 3
+
+# output:
+# foo foo foo

@@ -1,0 +1,17 @@
+# we can define single line functions as constants (no args)
+# let's say just print the tape Hello
+
+
+tape Hello 7
+int i 0
+
+set Hello[0] 'H'; set Hello[1] 'e'; set Hello[2] 'l'; set Hello[3] 'l'; set Hello[4] 'o'; set Hello[5] '!'; set Hello[6] '\n'
+
+print_hello
+
+print_hello
+
+
+func print_hello: set i 0; loop i<6; put Hello[i]; pp i; pool
+
+# we can declare constant where we want, since they're evaluated before compilation

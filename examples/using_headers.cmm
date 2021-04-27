@@ -1,0 +1,5 @@
+include sample_header.lh
+
+set Out[0] 'H'; set Out[1] 'e'; set Out[2] 'l'; set Out[3] 'l'; set Out[4] 'o';
+
+print

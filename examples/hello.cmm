@@ -1,0 +1,26 @@
+main:
+    put 'H'; put 'e'; put 'l'; put 'l'; put 'o'; put ','; put '_s'; put 'W'; put 'o'; put 'r'; put 'l'; put 'd'; put '!'; put '\n'
+
+    # we can also do this with a tape
+
+    tape Hello 7
+    int i 0
+
+    # here I write each letter, but then I can print this how many times I want more easily
+
+    set Hello[0] 'H'; set Hello[1] 'e'; set Hello[2] 'l'; set Hello[3] 'l'; set Hello[4] 'o'; set Hello[5] '!'; set Hello[6] '\n'
+
+    # let's print!
+
+    set i 0
+    loop i<7
+    put Hello[i]
+    set i i+1
+    pool
+
+    set i 0
+    loop i<7
+    put Hello[i]
+    set i i+1
+    pool
+

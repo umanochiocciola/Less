@@ -1,0 +1,8 @@
+
+# it's good practice not to use I/O in headres/libraries
+
+const nl: '\n'
+func print: set prc 0; loop prc<255; put Out[prc]; pp prc; loop Out[prc]==0; set prc 255; pool; pool
+
+tape Out 255
+int prc 0
