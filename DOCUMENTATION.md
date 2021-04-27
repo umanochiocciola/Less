@@ -19,7 +19,7 @@
 Since spaces are used to separate arguments, and this language is so good that is not parsed in any way, to print a space, you have a builtin constant
 named "_s" to use like this
 
-   put _s
+    put _s
 
 you also have these constants builtin:
 
@@ -35,14 +35,16 @@ They can be declared at any point of the code, the position doesn't matter
 # Functions
 
 you can declare a line-function like this
-    func name: <code>
+       
+       func name: <code>
 
 line functions don't take arguments
 example
 
 PROGRAM:
-    func foo: put 'f'; put 'o'; put 'o'
-    foo
+
+        func foo: put 'f'; put 'o'; put 'o'
+        foo
 
 OUTPUT:
     foo
@@ -57,15 +59,15 @@ you can use # to use keys in comments
 
 example
 
-put 'A'  # this will put the letter "A" to the screen
+    put 'A'  # this will put the letter "A" to the screen</br>
+
 OUTPTUT: A
 
 # file extensions
-
 this is just a convention
 
-name.cmm   -   source file
-name.lh    -   library/header
-name.ccm   -   custom commands chart  
+name.cmm   -   source file</br>
+name.lh    -   library/header</br>
+name.ccm   -   custom commands chart </br> 
 
 
