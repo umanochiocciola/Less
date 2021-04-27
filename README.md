@@ -15,4 +15,4 @@ less (previously c--)
   to see gcc output add                      -v
 
 ## Docs
-see DOCUMENTATION.md
+see <a href="DOCUMENTATION.md">documentation</a>
