@@ -1,5 +1,5 @@
 # Less
-less (previously c--)
+Less (previously c--)
 
 ## Installation
   sudo sh install.sh</br>
