@@ -13,6 +13,7 @@
     pp <name>              increases by 1 value                       pp i
     mm <name>              decreases by 1 value                       mm countdown
 
+you can create custom command, check examples/using_custom.ccm
 
 # Consts
 
@@ -69,5 +70,9 @@ this is just a convention
 name.cmm   -   source file</br>
 name.lh    -   library/header</br>
 name.ccm   -   custom commands chart </br> 
+
+# Debugging
+
+if you get any python error, use the -D flag to get on screen how the transpiler reads each command
 
 
