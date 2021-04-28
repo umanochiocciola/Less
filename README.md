@@ -1,11 +1,12 @@
 # Less
 Less (previously c--)
+version 0.2
 
-## Installation
+### Installation
   sudo sh install.sh</br>
   that's it
 
-## Usage
+### Usage
   to transplie Less code to C code (cross-system) just type
     glc <filename>
   
@@ -14,5 +15,5 @@ Less (previously c--)
   to select the output binary name add       -o <name>
   to see gcc output add                      -v
 
-## Docs
+### Docs
 see <a href="DOCUMENTATION.md">documentation</a>
