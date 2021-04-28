@@ -7,6 +7,9 @@ if len(argv) < 2:
     
     exit(1)
     
+def debug(txt, typ='info'):
+    print(f'[{typ}] {txt}')
+    0
 
 
 try:
@@ -16,16 +19,12 @@ except:
     print("no such file"); exit(1)
 
 WDIR = os.path.dirname(os.path.abspath(argv[1]))+'/'
+debug(f'working directory: {WDIR}', 'info')
 
 flags = []
 for i in argv[1:]:
     if i[0] in ['-', '--']:
         flags.append(i.replace('-', ''))
-
-
-def debug(txt, typ='info'):
-    print(f'[{typ}] {txt}')
-    0
 
 
 debug('building references')
@@ -160,17 +159,27 @@ while POG < len(program):
     args = cian.replace(key, '').strip(' ').split(' ')
     if args == ['']: args = []
 
-    #print(f'{cian}   {key} {args}')
+    if 'D' in flags: debug(f'   {cian}   {key} {args}', 'transpiler debug')
 
     if not(key in repls):
         continue
     
-    if len(args) != repls[key].count('$'):
-        debug(f'line {POG}: {key} takes {repls[key].count("$")} arguments, but {len(args)} were given.', 'error')
+    arg = -1
+    NEEDED = 0
+    word = repls[key]
+    for i in range(len(word)):
+        if word[i] == '$' and word[i+1] != str(arg):
+            arg += 1
+            NEEDED += 1
+            #print(word[i], word[i+1], NEEDED, arg)
+    #print('-----------------------------')
+    
+    if len(args) != NEEDED:
+        debug(f'line {POG}: {key} takes {NEEDED} arguments, but {len(args)} were given.', 'error')
     
     buildbuff = repls[key]+';'
     
-    for i in range(repls[key].count('$')):
+    for i in range(NEEDED):
         if args != []: buildbuff = buildbuff.replace(f'${i}', args[i])
 
     
@@ -210,13 +219,15 @@ if 'c' in flags or 'compile' in flags:
     debug(f'compiling to {out}')
     import os
     
-    if 'v' in flags: os.system(f'gcc {WDIR}out.c -o {WDIR+out}')
+    if 'v' in flags:
+        debug(f"starting gcc '{WDIR}out.c' -o '{WDIR+out}'", 'info')
+        os.system(f"gcc '{WDIR}out.c' -o '{WDIR+out}'")
     else:
-        os.system(f'gcc {WDIR}out.c -o {WDIR+out} >.garbage 2>&1')
+        os.system(f"gcc '{WDIR}out.c' -o '{WDIR+out}' >.garbage 2>&1")
         os.system('rm .garbage')
     
     if 'clean' in flags:
-        os.system(f'rm {WDIR}out.c')
+        os.system(f"rm '{WDIR}out.c'")
     else:
         debug('to automatically remove out.c use --clean', 'note')
 else:
